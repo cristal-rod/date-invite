@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Date With Your Wife 💕</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 30px 16px;
+      background: #ffe4ec;
+      color: #84234b;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    main {
+      max-width: 620px;
+      margin: 20px auto;
+      padding: 32px 22px;
+      background: #fff8fb;
+      border-radius: 28px;
+      box-shadow: 0 12px 40px #84234b18;
+    }
+
+    h1 {
+      font-size: clamp(26px, 6vw, 38px);
+    }
+
+    h2, p {
+      line-height: 1.5;
+    }
+
+    .heart {
+      font-size: 55px;
+    }
+
+    button, .email-button {
+      display: inline-block;
+      background: #b82e65;
+      color: white;
+      border: none;
+      border-radius: 24px;
+      padding: 15px 22px;
+      margin: 8px;
+      font: inherit;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    button:hover, .email-button:hover {
+      background: #84234b;
+    }
+
+    .secondary {
+      background: #f5d1df;
+      color: #84234b;
+    }
+
+    .secondary:hover {
+      background: #eab5ca;
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid #84234b;
+      outline-offset: 4px;
+    }
+
+    fieldset {
+      border: none;
+      padding: 0;
+      margin: 24px 0;
+      min-width: 0;
+    }
+
+    legend {
+      width: 100%;
+      margin-bottom: 16px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .choice {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: white;
+      border: 2px solid #e9b2c7;
+      border-radius: 16px;
+      padding: 16px;
+      margin: 12px 0;
+      text-align: left;
+      cursor: pointer;
+      line-height: 1.5;
+    }
+
+    .choice:has(input:checked) {
+      background: #ffe4ec;
+      border-color: #b82e65;
+    }
+
+    .choice input {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      accent-color: #b82e65;
+    }
+
+    .field-label {
+      display: block;
+      text-align: left;
+      margin: 20px 0 8px;
+      font-weight: bold;
+    }
+
+    input[type="date"],
+    input[type="time"],
+    input[type="email"],
+    textarea {
+      display: block;
+      width: 100%;
+      min-width: 0;
+      padding: 14px;
+      border: 2px solid #e9b2c7;
+      border-radius: 12px;
+      background: white;
+      color: #84234b;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .note {
+      font-size: 14px;
+    }
+
+    #comeback {
+      min-height: 52px;
+      font-weight: bold;
+    }
+
+    #details {
+      text-align: left;
+      background: #ffe4ec;
+      padding: 20px;
+      border-radius: 18px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      line-height: 1.8;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="heart" aria-hidden="true">💌</div>
+    <p>A very important wife investigation</p>
+
+    <!-- Opening questions -->
+    <section id="questions">
+      <h1>Hey Johnie 💕</h1>
+
+      <h2 id="question" tabindex="-1">
+        Do you love me?
+      </h2>
+
+      <button id="yes-button" type="button">
+        Yes ❤️
+      </button>
+
+      <button id="no-button" class="secondary" type="button">
+        No 😏
+      </button>
+
+      <p id="comeback" aria-live="polite"></p>
+
+      <p class="note">
+        Investigator: your wife. Extremely professional.
+      </p>
+    </section>
+
+    <!-- Activity, date, and time -->
+    <section id="planning" hidden>
+      <h1 id="planning-title" tabindex="-1">
+        Okay, prove it. Take me on a date 💅
+      </h1>
+
+      <form id="date-form">
+        <fieldset>
+          <legend>Choose our adventure 😘</legend>
+
+          <label class="choice">
+            <input
+              type="radio"
+              name="activity"
+              value="Food + Shopping + Movie 🍽️🛍️🎬"
+              required
+            >
+            <span>🍽️ Food + Shopping + Movie</span>
+          </label>
+
+          <label class="choice">
+            <input
+              type="radio"
+              name="activity"
+              value="Coffee + Walk + Dessert ☕🚶🍰"
+            >
+            <span>☕ Coffee + Walk + Dessert</span>
+          </label>
+
+          <label class="choice">
+            <input
+              type="radio"
+              name="activity"
+              value="Games + Pizza + Cuddles 🎮🍕💕"
+            >
+            <span>🎮 Games + Pizza + Cuddles</span>
+          </label>
+
+          <label class="choice">
+            <input
+              type="radio"
+              name="activity"
+              value="Surprise + Dinner + Adventure 🎁🍽️✨"
+            >
+            <span>🎁 Surprise + Dinner + Adventure</span>
+          </label>
+        </fieldset>
+
+        <label class="field-label" for="day">
+          What day can I steal you? 📅
+        </label>
+        <input id="day" type="date" required>
+
+        <label class="field-label" for="time">
+          What time, handsome? ⏰
+        </label>
+        <input id="time" type="time" required>
+
+        <button type="submit">
+          Next: a little love note 💌
+        </button>
+      </form>
+    </section>
+
+    <!-- Message and email -->
+    <section id="message-page" hidden>
+      <h1 id="message-title" tabindex="-1">
+        Any words for your beautiful wife? 😌💕
+      </h1>
+
+      <form id="message-form">
+        <label class="field-label" for="message">
+          Add your message:
+        </label>
+
+        <textarea
+          id="message"
+          maxlength="1000"
+          placeholder="Dear beautiful wife..."
+        ></textarea>
+
+        <label class="field-label" for="email">
+          Your email for our date details 💌
+        </label>
+
+        <input
+          id="email"
+          type="email"
+          autocomplete="email"
+          placeholder="you@example.com"
+          required
+        >
+
+        <p class="note">
+          After confirming, open the email draft and press Send
+          to email yourself our plan.
+        </p>
+
+        <button type="submit">
+          Confirm our date 😘
+        </button>
+
+        <button
+          type="button"
+          class="secondary"
+          onclick="backToPlan()"
+        >
+          Change day or time
+        </button>
+      </form>
+    </section>
+
+    <!-- Final summary -->
+    <section id="finished" hidden>
+      <h1 id="finished-title" tabindex="-1">
+        You're booked, handsome! 💕
+      </h1>
+
+      <p>
+        Your wife accepts this excellent demonstration of love 😂
+      </p>
+
+      <div id="details"></div>
+
+      <p>
+        Dress code: cute.<br>
+        Hand-holding: strongly encouraged 😘
+      </p>
+
+      <a id="email-link" class="email-button" href="#">
+        Open my date email 💌
+      </a>
+
+      <p class="note">
+        This opens a draft in your configured email app.
+        Press Send to email yourself the details.
+      </p>
+
+      <p>
+        Screenshot this and send it to your wife, too! 💕
+      </p>
+
+      <button
+        type="button"
+        class="secondary"
+        onclick="backToPlan()"
+      >
+        Edit our date
+      </button>
+    </section>
+  </main>
+
+  <script>
+    const questions = [
+      {
+        question: "Do you love me?",
+        answer: "Yes ❤️"
+      },
+      {
+        question: "Really?",
+        answer: "Really 😘"
+      },
+      {
+        question: "Like… REALLY really?",
+        answer: "YES, WOMAN 😂"
+      }
+    ];
+
+    const comebacks = [
+      "Your wife has rejected this answer. Try again 🤨",
+      "Johnie… we have a CHILD together 😂",
+      "Okay, somebody’s feeling brave today 💀",
+      "Would food help you reconsider? 🍽️😂"
+    ];
+
+    let questionNumber = 0;
+    let noClicks = 0;
+
+    function showPage(pageId, headingId) {
+      const pages = [
+        "questions",
+        "planning",
+        "message-page",
+        "finished"
+      ];
+
+      pages.forEach(function(id) {
+        document.getElementById(id).hidden = id !== pageId;
+      });
+
+      document.getElementById(headingId).focus();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    document.getElementById("no-button").addEventListener(
+      "click",
+      function() {
+        document.getElementById("comeback").textContent =
+          comebacks[noClicks % comebacks.length];
+
+        noClicks++;
+      }
+    );
+
+    document.getElementById("yes-button").addEventListener(
+      "click",
+      function() {
+        questionNumber++;
+
+        if (questionNumber < questions.length) {
+          document.getElementById("question").textContent =
+            questions[questionNumber].question;
+
+          document.getElementById("yes-button").textContent =
+            questions[questionNumber].answer;
+
+          document.getElementById("comeback").textContent = "";
+          document.getElementById("question").focus();
+        } else {
+          showPage("planning", "planning-title");
+        }
+      }
+    );
+
+    function updateMinimumDay() {
+      const today = new Date();
+
+      const localToday =
+        today.getFullYear() + "-" +
+        String(today.getMonth() + 1).padStart(2, "0") + "-" +
+        String(today.getDate()).padStart(2, "0");
+
+      document.getElementById("day").min = localToday;
+    }
+
+    function validateDate() {
+      updateMinimumDay();
+
+      const day = document.getElementById("day");
+      const time = document.getElementById("time");
+
+      time.setCustomValidity("");
+
+      if (day.value && time.value) {
+        const chosenDate = new Date(
+          day.value + "T" + time.value
+        );
+
+        if (chosenDate <= new Date()) {
+          time.setCustomValidity(
+            "Choose a date and time in the future."
+          );
+        }
+      }
+    }
+
+    updateMinimumDay();
+
+    document.getElementById("day").addEventListener(
+      "input",
+      validateDate
+    );
+
+    document.getElementById("time").addEventListener(
+      "input",
+      validateDate
+    );
+
+    document.getElementById("date-form").addEventListener(
+      "submit",
+      function(event) {
+        event.preventDefault();
+        validateDate();
+
+        if (!this.reportValidity()) {
+          return;
+        }
+
+        showPage("message-page", "message-title");
+      }
+    );
+
+    document.getElementById("message-form").addEventListener(
+      "submit",
+      function(event) {
+        event.preventDefault();
+        validateDate();
+
+        const dateForm = document.getElementById("date-form");
+
+        if (!dateForm.checkValidity()) {
+          showPage("planning", "planning-title");
+          dateForm.reportValidity();
+          return;
+        }
+
+        const activity = document.querySelector(
+          'input[name="activity"]:checked'
+        ).value;
+
+        const day = document.getElementById("day").value;
+        const time = document.getElementById("time").value;
+
+        const message = document.getElementById("message")
+          .value.trim();
+
+        const email = document.getElementById("email")
+          .value.trim();
+
+        const dateTime = new Date(day + "T" + time);
+
+        const readableDate = dateTime.toLocaleString(
+          "en-US",
+          {
+            weekday: "long",
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+            hour: "numeric",
+            minute: "2-digit"
+          }
+        );
+
+        const details =
+          "Our adventure: " + activity +
+          "\nOur date: " + readableDate +
+          "\n\nYour message:\n" +
+          (message || "Sealed with a kiss 😘");
+
+        document.getElementById("details").textContent =
+          details;
+
+        const subject = "Our date is planned! 💕";
+
+        const emailBody =
+          "A date with your wife 💕\n\n" +
+          details +
+          "\n\nDress code: cute." +
+          "\nYou're in charge of holding my hand 😘";
+
+        document.getElementById("email-link").href =
+          "mailto:" + encodeURIComponent(email) +
+          "?subject=" + encodeURIComponent(subject) +
+          "&body=" + encodeURIComponent(emailBody);
+
+        showPage("finished", "finished-title");
+      }
+    );
+
+    function backToPlan() {
+      showPage("planning", "planning-title");
+    }
+  </script>
+</body>
+</html>
